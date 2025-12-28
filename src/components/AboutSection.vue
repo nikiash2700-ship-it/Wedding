@@ -33,7 +33,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const audioPlayer = ref(null)
-const musicSrc = '/mus.mp3'
+const musicSrc = import.meta.env.BASE_URL + 'mus.mp3'
 
 const startMusic = () => {
   if (!audioPlayer.value) return

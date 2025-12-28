@@ -2,7 +2,7 @@
   <section class="hero-section" id="home">
     <img :src="heroImage" alt="Wedding Hero Image" class="hero-image">
     <div v-if="showInitials" class="hero-initials" :class="{ 'visible': showInitials }">
-      <img src="/initials.png" alt="Initials" class="hero-initials-image" />
+      <img :src="initialsImageSrc" alt="Initials" class="hero-initials-image" />
     </div>
     <div v-if="showInitials" class="hero-date-wrapper" :class="{ 'visible': showInitials }">
       <span class="hero-date">10 | 09 | 2026</span>
@@ -19,10 +19,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 
 const heroImage = 'https://i8.imageban.ru/out/2025/12/22/fe76c72faee06f7f8c697e11f2738fd1.jpg'
 const showInitials = ref(false)
+const initialsImageSrc = computed(() => import.meta.env.BASE_URL + 'initials.png')
 
 // Предзагрузка главного изображения
 const preloadHeroImage = () => {

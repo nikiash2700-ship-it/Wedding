@@ -3,7 +3,7 @@
     <div class="preloader-container">
       <!-- Изображение инициалов -->
       <div ref="initialsWrapper" class="initials-image-wrapper" :class="{ 'animating': isAnimating }">
-        <img ref="initialsImage" src="/initials.png" alt="Initials" class="initials-image" />
+        <img ref="initialsImage" :src="initialsImageSrc" alt="Initials" class="initials-image" />
       </div>
       
       <!-- Текст NIKITA & ALINA -->
@@ -43,6 +43,7 @@ const minTimeElapsed = ref(false)
 const isAnimating = ref(false)
 const initialsWrapper = ref(null)
 const initialsImage = ref(null)
+const initialsImageSrc = computed(() => import.meta.env.BASE_URL + 'initials.png')
 
 // Критические ресурсы для загрузки
 const criticalImages = [

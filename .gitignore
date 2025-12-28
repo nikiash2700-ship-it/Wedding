@@ -61,9 +61,9 @@ IMG_*.JPG
 *-section.png
 Frame*.png
 
-# Старые файлы
+# Старые файлы (только в корне проекта)
 script.js
-styles.css
+/styles.css
 event.ics
 copy_images.py
 

@@ -1,0 +1,89 @@
+/* All Fonts for Comparison */
+@font-face {
+  font-family: 'Vogue';
+  src: url('./fonts/Vogue.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'More Light';
+  src: url('./fonts/More Light.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'More Light Italic';
+  src: url('./fonts/More Light Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PARISIAN';
+  src: url('./fonts/PARISIAN.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roschild';
+  src: url('./fonts/Roschild-owAjB.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SNELLB';
+  src: url('./fonts/SNELLB.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Mobile optimizations - remove borders and shadows */
+@media (max-width: 768px) {
+  * {
+    box-shadow: none !important;
+  }
+  
+  .rsvp-form,
+  .detail-item,
+  .contact-card,
+  .photo-item,
+  .rsvp-success {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  
+  .rsvp-form {
+    padding: 20px 15px !important;
+  }
+  
+  .detail-item {
+    border-top: 1px solid #E8B4A0 !important;
+  }
+  
+  .container {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}

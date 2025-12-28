@@ -43,10 +43,20 @@ yarn-error.log*
 # Старые изображения (используются только через ImageBan)
 IMG_*.JPG
 *.jpg
-*.png
 *.gif
 *.mp4
+
+# PNG файлы (игнорируем все, кроме нужных)
+*.png
+!public/*.png
+
+# Шрифты (игнорируем все, кроме нужных)
 *.otf
+!src/fonts/*.otf
+*.ttf
+!src/fonts/*.ttf
+*.TTF
+!src/fonts/*.TTF
 
 # Старые секции Figma (не используются)
 *-section.png

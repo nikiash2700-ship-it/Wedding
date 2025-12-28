@@ -35,6 +35,7 @@ function staticFilesPlugin() {
 }
 
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? '/Wedding/' : '/',
   plugins: [
     vue(),
     staticFilesPlugin()

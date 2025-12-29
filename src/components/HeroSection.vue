@@ -109,7 +109,7 @@ onMounted(() => {
 
 .hero-date-wrapper {
   position: absolute;
-  top: 200px;
+  top: 240px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
@@ -125,9 +125,9 @@ onMounted(() => {
 
 .hero-date {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.2rem, 4.5vw, 1.6rem);
+  font-size: clamp(1.4rem, 5.5vw, 1.8rem);
   font-weight: 400;
-  letter-spacing: clamp(1.5px, 0.6vw, 2px);
+  letter-spacing: clamp(2px, 0.8vw, 2.5px);
   color: #2c2c2c;
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
   white-space: nowrap;
@@ -137,104 +137,104 @@ onMounted(() => {
 /* Планшеты и большие телефоны (768px - 1024px) */
 @media (max-width: 1024px) and (min-width: 769px) {
   .hero-initials-image {
-    width: clamp(320px, 40vw, 420px);
-    height: clamp(320px, 40vw, 420px);
+    width: clamp(380px, 50vw, 480px);
+    height: clamp(380px, 50vw, 480px);
   }
   
   .hero-initials {
     top: -20px;
-    transform: translateX(-50%) translateY(0) scale(0.6);
+    transform: translateX(-50%) translateY(0) scale(0.7);
   }
   
   .hero-date-wrapper {
-    top: clamp(160px, 18vh, 200px);
+    top: clamp(200px, 22vh, 240px);
   }
 }
 
 /* Средние телефоны (481px - 768px) */
 @media (max-width: 768px) {
   .hero-initials-image {
-    width: clamp(280px, 55vw, 350px);
-    height: clamp(280px, 55vw, 350px);
+    width: clamp(340px, 65vw, 420px);
+    height: clamp(340px, 65vw, 420px);
   }
   
   .hero-initials {
     top: -15px;
-    transform: translateX(-50%) translateY(0) scale(0.65);
+    transform: translateX(-50%) translateY(0) scale(0.75);
   }
   
   .hero-date-wrapper {
-    top: clamp(140px, 16vh, 175px);
+    top: clamp(180px, 20vh, 215px);
   }
   
   .hero-date {
-    font-size: clamp(1.1rem, 4vw, 1.4rem);
-    letter-spacing: clamp(1px, 0.5vw, 1.8px);
+    font-size: clamp(1.3rem, 5vw, 1.6rem);
+    letter-spacing: clamp(1.5px, 0.7vw, 2px);
   }
 }
 
 /* Маленькие телефоны (360px - 480px) */
 @media (max-width: 480px) {
   .hero-initials-image {
-    width: clamp(240px, 60vw, 300px);
-    height: clamp(240px, 60vw, 300px);
+    width: clamp(300px, 70vw, 380px);
+    height: clamp(300px, 70vw, 380px);
   }
   
   .hero-initials {
     top: -10px;
-    transform: translateX(-50%) translateY(0) scale(0.6);
+    transform: translateX(-50%) translateY(0) scale(0.7);
   }
   
   .hero-date-wrapper {
-    top: clamp(120px, 14vh, 190px);
+    top: clamp(160px, 18vh, 230px);
   }
   
   .hero-date {
-    font-size: clamp(1rem, 4.2vw, 1.25rem);
-    letter-spacing: clamp(0.8px, 0.4vw, 1.2px);
+    font-size: clamp(1.2rem, 5.2vw, 1.5rem);
+    letter-spacing: clamp(1.2px, 0.6vw, 1.8px);
   }
 }
 
 /* Очень маленькие телефоны (до 360px) */
 @media (max-width: 360px) {
   .hero-initials-image {
-    width: clamp(200px, 65vw, 260px);
-    height: clamp(200px, 65vw, 260px);
+    width: clamp(260px, 75vw, 340px);
+    height: clamp(260px, 75vw, 340px);
   }
   
   .hero-initials {
     top: -5px;
-    transform: translateX(-50%) translateY(0) scale(0.55);
+    transform: translateX(-50%) translateY(0) scale(0.65);
   }
   
   .hero-date-wrapper {
-    top: clamp(100px, 12vh, 160px);
+    top: clamp(140px, 16vh, 200px);
   }
   
   .hero-date {
-    font-size: clamp(0.95rem, 3.8vw, 1.15rem);
-    letter-spacing: clamp(0.6px, 0.35vw, 1px);
+    font-size: clamp(1.1rem, 4.8vw, 1.4rem);
+    letter-spacing: clamp(1px, 0.5vw, 1.5px);
   }
 }
 
 /* Ландшафтная ориентация на телефонах */
 @media (max-width: 768px) and (orientation: landscape) {
   .hero-initials-image {
-    width: clamp(180px, 30vh, 250px);
-    height: clamp(180px, 30vh, 250px);
+    width: clamp(220px, 35vh, 300px);
+    height: clamp(220px, 35vh, 300px);
   }
   
   .hero-initials {
     top: -5px;
-    transform: translateX(-50%) translateY(0) scale(0.5);
+    transform: translateX(-50%) translateY(0) scale(0.6);
   }
   
   .hero-date-wrapper {
-    top: clamp(80px, 10vh, 140px);
+    top: clamp(120px, 14vh, 180px);
   }
   
   .hero-date {
-    font-size: clamp(0.95rem, 3vh, 1.1rem);
+    font-size: clamp(1.1rem, 3.5vh, 1.3rem);
   }
 }
 

@@ -15,15 +15,13 @@
           <p class="detail-note" v-if="detail.note">{{ detail.note }}</p>
           
           <!-- Кнопка добавления в календарь для даты -->
-          <a 
+          <button 
             v-if="detail.type === 'date'" 
-            :href="calendarLink" 
             class="action-button"
-            target="_blank"
-            @click.stop
+            @click.stop="addToCalendar"
           >
             ADD TO CALENDAR
-          </a>
+          </button>
           
           <!-- Кнопка открытия карты для места -->
           <button 
@@ -81,15 +79,51 @@ const details = ref([
   }
 ])
 
-const calendarLink = computed(() => {
-  const startDate = '20260910T090000'
-  const endDate = '20260910T160000'
-  const title = encodeURIComponent('Свадьба NIKITA & ALINA')
-  const description = encodeURIComponent('Свадьба NIKITA & ALINA\nУсадьба Марьино')
-  const location = encodeURIComponent('Усадьба Марьино')
+// Функция для добавления события в календарь
+const addToCalendar = () => {
+  // Дата события: 10 сентября 2026, 12:00
+  // Формат для .ics: YYYYMMDDTHHMMSS
+  const startDate = '20260910T120000'
+  const endDate = '20260910T230000' // До 23:00
+  const title = 'Свадьба NIKITA & ALINA'
+  const description = 'Свадьба NIKITA & ALINA\\nУсадьба Марьино'
+  const location = 'Усадьба Марьино'
   
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&dates=${startDate}/${endDate}&text=${title}&details=${description}&location=${location}`
-})
+  // Генерируем уникальный ID для события
+  const uid = `wedding-nikita-alina-2026@${Date.now()}`
+  
+  // Создаем содержимое файла .ics
+  const icsContent = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Wedding//NIKITA & ALINA//RU',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    `UID:${uid}`,
+    `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z`,
+    `DTSTART:${startDate}`,
+    `DTEND:${endDate}`,
+    `SUMMARY:${title}`,
+    `DESCRIPTION:${description}`,
+    `LOCATION:${location}`,
+    'STATUS:CONFIRMED',
+    'SEQUENCE:0',
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n')
+  
+  // Создаем blob и скачиваем файл
+  const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' })
+  const url = window.URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.setAttribute('download', 'wedding-nikita-alina.ics')
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+  window.URL.revokeObjectURL(url)
+}
 
 const openMap = (mapLink) => {
   window.open(mapLink, '_blank')

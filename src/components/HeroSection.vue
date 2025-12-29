@@ -81,10 +81,14 @@ onMounted(() => {
   transform-origin: center top;
   z-index: 3;
   opacity: 0;
-  transition: opacity 0.8s ease 0.2s;
+  transition: opacity 0.8s ease 0.2s, transform 0.3s ease;
   pointer-events: none;
   margin: 0;
   padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .hero-initials.visible {
@@ -94,6 +98,8 @@ onMounted(() => {
 .hero-initials-image {
   width: 450px;
   height: 450px;
+  max-width: 90vw;
+  max-height: 40vh;
   object-fit: contain;
   filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
   display: block;
@@ -119,51 +125,116 @@ onMounted(() => {
 
 .hero-date {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
+  font-size: clamp(0.9rem, 4vw, 1.6rem);
   font-weight: 400;
-  letter-spacing: 2px;
+  letter-spacing: clamp(1px, 0.5vw, 2px);
   color: #2c2c2c;
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
 }
 
 
+/* Планшеты и большие телефоны (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .hero-initials-image {
+    width: clamp(280px, 35vw, 380px);
+    height: clamp(280px, 35vw, 380px);
+  }
+  
+  .hero-initials {
+    top: -20px;
+    transform: translateX(-50%) translateY(0) scale(0.55);
+  }
+  
+  .hero-date-wrapper {
+    top: clamp(160px, 18vh, 200px);
+  }
+}
+
+/* Средние телефоны (481px - 768px) */
 @media (max-width: 768px) {
   .hero-initials-image {
-    width: 300px;
-    height: 300px;
+    width: clamp(220px, 50vw, 300px);
+    height: clamp(220px, 50vw, 300px);
   }
   
   .hero-initials {
-    transform: translateX(-50%) translateY(0);
+    top: -15px;
+    transform: translateX(-50%) translateY(0) scale(0.5);
   }
   
   .hero-date-wrapper {
-    top: 175px;
+    top: clamp(140px, 16vh, 175px);
   }
   
   .hero-date {
-    font-size: 1.3rem;
-    letter-spacing: 1.5px;
+    font-size: clamp(0.95rem, 3.5vw, 1.3rem);
+    letter-spacing: clamp(0.8px, 0.4vw, 1.5px);
   }
 }
 
+/* Маленькие телефоны (360px - 480px) */
 @media (max-width: 480px) {
   .hero-initials-image {
-    width: 250px;
-    height: 250px;
+    width: clamp(180px, 55vw, 250px);
+    height: clamp(180px, 55vw, 250px);
   }
   
   .hero-initials {
-    transform: translateX(-50%) translateY(0);
+    top: -10px;
+    transform: translateX(-50%) translateY(0) scale(0.45);
   }
   
   .hero-date-wrapper {
-    top: 190px;
+    top: clamp(120px, 14vh, 190px);
   }
   
   .hero-date {
-    font-size: 1.1rem;
-    letter-spacing: 1px;
+    font-size: clamp(0.85rem, 3vw, 1.1rem);
+    letter-spacing: clamp(0.5px, 0.3vw, 1px);
+  }
+}
+
+/* Очень маленькие телефоны (до 360px) */
+@media (max-width: 360px) {
+  .hero-initials-image {
+    width: clamp(150px, 60vw, 200px);
+    height: clamp(150px, 60vw, 200px);
+  }
+  
+  .hero-initials {
+    top: -5px;
+    transform: translateX(-50%) translateY(0) scale(0.4);
+  }
+  
+  .hero-date-wrapper {
+    top: clamp(100px, 12vh, 160px);
+  }
+  
+  .hero-date {
+    font-size: clamp(0.75rem, 2.8vw, 0.95rem);
+    letter-spacing: clamp(0.3px, 0.25vw, 0.8px);
+  }
+}
+
+/* Ландшафтная ориентация на телефонах */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-initials-image {
+    width: clamp(150px, 25vh, 220px);
+    height: clamp(150px, 25vh, 220px);
+  }
+  
+  .hero-initials {
+    top: -5px;
+    transform: translateX(-50%) translateY(0) scale(0.4);
+  }
+  
+  .hero-date-wrapper {
+    top: clamp(80px, 10vh, 140px);
+  }
+  
+  .hero-date {
+    font-size: clamp(0.8rem, 2.5vh, 1rem);
   }
 }
 
